@@ -1,18 +1,24 @@
 package com.hibernate;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Check;
+
 @Entity
 //@Table(name="mystudents")
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)//for second level caching
+
 public class Student {
 	@Id
 	private int id;
-
 	private String name;
 	private String city;
-
 	private Certificate certificate;
 
 	public Student(int id, String name, String city) {
@@ -61,6 +67,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", city=" + city + "]";
+		return "Student [id=" + id + ", name=" + name + ", city=" + city + ", certificate=" + certificate + "]";
 	}
+
+	
 }

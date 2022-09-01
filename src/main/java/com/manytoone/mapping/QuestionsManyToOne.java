@@ -2,6 +2,7 @@
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,7 +18,7 @@ public class QuestionsManyToOne {
 	private int questionId;
 	private String question;
 
-	@OneToMany(mappedBy = "que",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "que",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 private List<AnswerManyToOne>answerManyToOnes;
 	public QuestionsManyToOne() {
 		super();

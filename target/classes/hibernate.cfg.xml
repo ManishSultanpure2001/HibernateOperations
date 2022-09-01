@@ -13,6 +13,8 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
+		<property name="cache.use_second_lebel_cache">true</property>
+		<property name="cache.region.factory_class"> org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
 		<mapping class="com.hibernate.Student"/>
 		<mapping class="com.hibernate.Address"/>
 		<mapping class="com.onetoone.maping.Answer"/>
@@ -21,5 +23,6 @@
 		<mapping class="com.manytoone.mapping.QuestionsManyToOne"/>
 		<mapping class="com.manytomany.mapping.Emp"/>
 		<mapping class="com.manytomany.mapping.Project"/>
+		<mapping resource ="com/mapping/xml/Person.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
